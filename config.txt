@@ -1,0 +1,8 @@
+channels=#r0b0tix
+logging=1
+login=spherebot
+nick=SphereBot
+port=6672
+realname=SphereBot McAwesome
+server=irc.theoks.net
+
