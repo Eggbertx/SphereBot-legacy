@@ -1,0 +1,25 @@
+SphereBot
+=======
+Version 0.2
+
+This is SphereBot, an IRC bot written in JavaScript using Sphere.
+
+Installation
+--------------
+In order to use this, you need to get Sphere. You can download the latest version at http://spheredev.org/wiki/Sphere:Latest
+Once you have downloaded Sphere, go into Sphere's "games" directory (path/to/sphere/games) and create a new folder (like SphereBot) and put the contents of this repo in that folder.
+
+Changes
+---------
+bot can now send messages
+
+TODO
+------
+plugin system
+Documentation (when needed)
+
+Links
+-------
+Spherical Community: http://www.spheredev.org/forums/
+Eggbertx's website: http://eggbertx.theoks.net/
+
