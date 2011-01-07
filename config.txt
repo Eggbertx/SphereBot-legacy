@@ -3,6 +3,7 @@ logging=1
 login=spherebot
 nick=SphereBot
 port=6672
+quitmessage=Bye everyone!
 realname=SphereBot McAwesome
 server=irc.theoks.net
 

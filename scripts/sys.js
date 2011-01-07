@@ -7,7 +7,7 @@ function ParsePlugin(file) {
 	try {
 		plugin_string= GetFileAsString(file);
 		eval(plugin_string);
-	} catch(e) { Abort("HONK "+e); 
+	} catch(e) { sendMessage(bot.channels[0], "Error: "+e); 
 	}
 }
 
@@ -19,6 +19,7 @@ function bot() {
 	this.channels = [];
 	this.server = "";
 	this.port = 6672;
+	this.quitmessage = "";
 }
 function ParseConfig() {
 	config_file = OpenFile("../config.txt");
@@ -31,8 +32,28 @@ function ParseConfig() {
 	bot.channels = channels.split(",");
 	bot.server = config_file.read("server", "irc.theoks.net");
 	bot.port = config_file.read("port", 6672);
+	bot.quitmessage = config_file.read("quitmessage", "Bye everyone!");
 }
 
 function sendMessage(chan, msg) {
 	socket.write(CreateByteArrayFromString("PRIVMSG "+chan+" :"+msg+"\n"));
+	log.write("sent message to "+chan+" \""+msg+"\"");
+}
+
+function Plugin(event, code) {
+	this.name = "";
+	this.info = "";
+	this.event = event;
+	this.code = code;
+}
+
+function addPlugin(plugin) {
+	PluginArray[PluginArray.length] = plugin;
+}
+
+function LoadDefaultPlugins() {
+	var default_plugin_list = GetFileList("plugins/default");
+	for(i=0;i<default_plugin_list.length;i++) {
+		ParsePlugin("~/plugins/default/"+default_plugin_list[i]);
+	}
 }

@@ -1,6 +1,6 @@
 SphereBot
 =======
-Version 0.2
+Version 0.4
 
 This is SphereBot, an IRC bot written in JavaScript using Sphere.
 
@@ -11,12 +11,11 @@ Once you have downloaded Sphere, go into Sphere's "games" directory (path/to/sph
 
 Changes
 ---------
-bot can now send messages
+Got a basic plugin system done
 
 TODO
 ------
-plugin system
-Documentation (when needed)
+Plugin documentation
 
 Links
 -------

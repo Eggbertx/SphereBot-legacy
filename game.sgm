@@ -1,0 +1,7 @@
+author=Eggbert
+description=
+name=SphereIRC
+screen_height=600
+screen_width=800
+script=main.js
+
