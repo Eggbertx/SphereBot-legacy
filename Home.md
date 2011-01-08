@@ -1,0 +1,2 @@
+Welcome to the SphereBot wiki!<br>
+SphereBot is an IRC bot written in JavaScript using Sphere. In order to use this, you need to get Sphere. You can download the latest version at the [[Spherical|http://spheredev.org/wiki/Sphere:Latest]] website. Once you have downloaded Sphere, go into Sphere's "games" directory (path/to/sphere/games) and create a new folder (like SphereBot) and run the command "git clone git@github.com:Eggbertx/SphereBot.git"
