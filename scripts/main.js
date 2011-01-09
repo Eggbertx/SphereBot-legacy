@@ -1,5 +1,5 @@
 RequireSystemScript("time.js");
-EvaluateScript("sys.js");
+EvaluateScript("functions.js");
 EvaluateScript("eventhandler.js");
 var y = 0
 var screen;
@@ -59,8 +59,7 @@ function game() {
 			if(msg.length > 0) {
 				log.write(msg.replace("\n",""));
 				pingCheck(msg);
-				event = EventHandler();
-				if(msg.indexOf("376") > -1) {
+				if(msg.indexOf("376") > -1 && msg.indexOf("PRIVMSG") <0) {
 					for(c=0;c<bot.channels.length;c++) {
 						socket.write(CreateByteArrayFromString("JOIN "+bot.channels[c]+" x\n"));
 						socket.write(CreateByteArrayFromString("MODE "+bot.channels[c]+"\n"));
@@ -68,9 +67,12 @@ function game() {
 						LoadDefaultPlugins();
 					}
 				}
+				EventHandler();
 				for(p=0;p<PluginArray.length;p++) {
-					plugin_code = PluginArray[p].code;
-					plugin_code();
+					if(PluginArray[p].event = event) {
+						plugin_code = PluginArray[p].code;
+						plugin_code();
+					}
 				}
 				font.drawTextBox(0, 24, GetScreenWidth(), GetScreenHeight()-24, 0, msg);
 				FlipScreen();

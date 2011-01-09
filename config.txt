@@ -1,4 +1,4 @@
-channels=#r0b0tix
+channels=#spherebot
 logging=1
 login=spherebot
 nick=SphereBot
