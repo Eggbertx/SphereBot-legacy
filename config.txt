@@ -1,8 +1,9 @@
-channels=#spherebot
+channels=#bots, #spherebot
 logging=1
 login=spherebot
 nick=SphereBot
 port=6672
+prefix=!
 quitmessage=Bye everyone!
 realname=SphereBot McAwesome
 server=irc.theoks.net

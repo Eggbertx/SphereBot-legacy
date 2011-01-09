@@ -1,4 +1,4 @@
-var quit = new Plugin("message", 
+var quit = new Plugin("MESSAGE", 
 function() {
 	if(msg.toLowerCase().indexOf(bot.name.toLowerCase()+" quit")>-1) {
 		socket.write(CreateByteArrayFromString("QUIT :"+bot.quitmessage+"\n"));

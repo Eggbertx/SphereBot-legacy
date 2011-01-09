@@ -70,8 +70,10 @@ function game() {
 				EventHandler();
 				for(p=0;p<PluginArray.length;p++) {
 					if(PluginArray[p].event = event) {
-						plugin_code = PluginArray[p].code;
-						plugin_code();
+						if((event == "MESSAGE" && msg[0] == bot.prefix) || event != "MESSAGE") {
+							plugin_code = PluginArray[p].code;
+							plugin_code();
+						}
 					}
 				}
 				font.drawTextBox(0, 24, GetScreenWidth(), GetScreenHeight()-24, 0, msg);

@@ -19,6 +19,7 @@ function bot() {
 	this.channels = [];
 	this.server = "";
 	this.port = 6672;
+	this.prefix = "";
 	this.quitmessage = "";
 }
 function ParseConfig() {
@@ -32,6 +33,7 @@ function ParseConfig() {
 	bot.channels = channels.split(",");
 	bot.server = config_file.read("server", "irc.theoks.net");
 	bot.port = config_file.read("port", 6672);
+	bot.prefix = config_file.read("prefix", "!");
 	bot.quitmessage = config_file.read("quitmessage", "Bye everyone!");
 }
 
@@ -56,4 +58,8 @@ function LoadDefaultPlugins() {
 	for(i=0;i<default_plugin_list.length;i++) {
 		ParsePlugin("~/plugins/default/"+default_plugin_list[i]);
 	}
+}
+
+function print(txt) {
+	screen_array[screen_array.length] = "\n"+txt
 }

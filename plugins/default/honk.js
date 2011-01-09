@@ -1,7 +1,6 @@
 var honk = new Plugin("MESSAGE", 
 function() {
 	if(msg.indexOf("HONK")>-1) {
-		Abort(msg)
 		sendMessage(channel,"HONK HONK");
 }});
 honk.name = "Honker";

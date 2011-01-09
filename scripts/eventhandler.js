@@ -4,24 +4,24 @@ msg = msg.substring(0,msg.lastIndexOf("\n"));
 		if(msg.indexOf("JOIN") >-1) {
 			msg = msg.substring(1,msg.length);
 			sender = msg.substring(0, msg.indexOf("!"));
-			msg.replace(":"+sender+"!", "");
+			msg = msg.replace(":"+sender+"!", "");
 			sender_host = msg.substring(0, msg.indexOf(" "));
-			msg.replace(sender_host+" ", "");
+			msg = msg.replace(sender_host+" ", "");
 			event = msg.substring(0,msg.indexOf(" "));
-			msg.replace(event+" :", "");
+			msg = msg.replace(event+" :", "");
 			channel = msg
 		} else if(msg.indexOf("QUIT") >-1) {
 			msg = msg.substring(1,msg.length);
 			sender = msg.substring(0, msg.indexOf("!"));
-			msg.replace(":"+sender+"!", "");
+			msg = msg.replace(":"+sender+"!", "");
 			sender_host = msg.substring(0, msg.indexOf(" "));
-			msg.replace(sender_host+" ", "");
+			msg = msg.replace(sender_host+" ", "");
 			event = msg.substring(0,msg.indexOf(" "));
 			msg.replace(event+" :", "");
 		} else if(msg.indexOf("MODE") >-1) {
 			msg = msg.substring(1, msg.length);
 			nick = msg.substring(0, msg.indexOf(" "));
-			msg.replace(nick+" ", "");
+			msg = msg.replace(nick+" ", "");
 			event = "MODE";
 			mode_change = msg.substring(msg.lastIndexOf(":")+1,msg.length);
 		} 
