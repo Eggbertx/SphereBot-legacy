@@ -19,7 +19,6 @@ function bot() {
 	this.channels = [];
 	this.server = "";
 	this.port = 6672;
-	this.prefix = "";
 	this.quitmessage = "";
 }
 function ParseConfig() {
@@ -29,11 +28,10 @@ function ParseConfig() {
 	bot.login = config_file.read("login", "spherebot");
 	bot.realname = config_file.read("realname", "SphereBot McAwesome");
 	bot.logging = config_file.read("logging",true)
-	channels = config_file.read("channels", ["#spherebot","#bots"]);
+	channels = config_file.read("channels", "#bots");
 	bot.channels = channels.split(",");
 	bot.server = config_file.read("server", "irc.theoks.net");
 	bot.port = config_file.read("port", 6672);
-	bot.prefix = config_file.read("prefix", "!");
 	bot.quitmessage = config_file.read("quitmessage", "Bye everyone!");
 }
 
@@ -54,16 +52,8 @@ function addPlugin(plugin) {
 }
 
 function LoadDefaultPlugins() {
-	var default_plugin_list = GetFileList("plugins/default");
+	var default_plugin_list = GetFileList("defaultplugins");
 	for(i=0;i<default_plugin_list.length;i++) {
-		ParsePlugin("~/plugins/default/"+default_plugin_list[i]);
+		ParsePlugin("~/defaultplugins/"+default_plugin_list[i]);
 	}
-}
-
-function print(txt) { // not used
-	screen_array[screen_array.length] = "\n"+txt
-}
-
-String.prototype.trim = function () {
-    return this.replace(/^\s*/, "").replace(/\s*$/, "");
 }

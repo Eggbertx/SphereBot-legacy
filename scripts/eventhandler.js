@@ -35,7 +35,7 @@ msg = msg.substring(0,msg.lastIndexOf("\n"));
 		msg = msg.replace("PRIVMSG ", "");
 		channel = msg.substring(1, msg.indexOf(":"));
 		msg = msg.replace(channel+":", "");
-		msg = msg.substring(1,msg.length);
+		msg = msg.substring(1,msg.length-1);
 	}
 }
 /*

@@ -1,4 +1,4 @@
-channels=#bots, #spherebot
+channels=#spherebot
 logging=1
 login=spherebot
 nick=SphereBot
