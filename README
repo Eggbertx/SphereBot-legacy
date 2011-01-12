@@ -1,6 +1,6 @@
 SphereBot
 =======
-Version 0.6
+Version 0.65
 
 This is SphereBot, an IRC bot written in JavaScript using Sphere.
 
@@ -16,7 +16,6 @@ Fixed problem of executing plugins more than once.
 TODO
 ------
 Finish event system
-Write reload plugin (so you don't have to restart the bot to load/modify plugins
 Write more plugins
 
 Links

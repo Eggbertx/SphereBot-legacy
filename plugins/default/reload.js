@@ -1,8 +1,9 @@
 var reload = new Plugin("MESSAGE", 
 function() {
-	if(msg.indexOf("reload")>-1) {
-		sendMessage(channel,"HONK HONK");
+	if(msg.indexOf(bot.prefix+"reload ")==0) {
+		plugin_name = msg.replace(bot.prefix+"reload ", "");
+		ParsePlugin(plugin_name);
 }});
-honk.name = "Honker";
-honk.info = "A simple script to test SphereBot's plugin system";
-addPlugin(honk);
+reload.name = "reload";
+reload.info = "Reloads the specified script";
+addPlugin(reload);
