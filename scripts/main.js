@@ -9,7 +9,8 @@ var waittext = ".";
 var PluginArray = [];
 var test = 1;
 var log = OpenLog("log.txt");
-
+var errorlog = OpenLog("errors.txt");
+var channel = "";
 ParseConfig();
 function initConnection() {
 	start_time = GetTime();
@@ -39,7 +40,7 @@ function initConnection() {
 
 function pingCheck(msg) {
 	if(msg.indexOf("PING") >-1) {
-		socket.write(CreateByteArrayFromString(msg.replace("PING", "PONG")));
+		socket.write(CreateByteArrayFromString(msg.replace("PING", "PONG")+"\n"));
 	}
 }
 
@@ -49,7 +50,7 @@ function game() {
 	while(true) {
 		if(IsKeyPressed(KEY_ESCAPE)) {
 			for(i=0;i<bot.channels.length;i++) {
-				socket.write(CreateByteArrayFromString("QUIT :"+bot.quitmessage));
+				socket.write(CreateByteArrayFromString("QUIT :"+bot.quitmessage+"\n"));
 			}
 			break;
 		}
@@ -68,12 +69,12 @@ function game() {
 					}
 				}
 				EventHandler();
-				for(p=0;p<PluginArray.length;p++) {
-					if(PluginArray[p].event = event) {
+					for(p=0;p<PluginArray.length;p++) {
+						if(PluginArray[p].event == event) {
 							plugin_code = PluginArray[p].code;
 							plugin_code();
+						}
 					}
-				}
 				font.drawTextBox(0, 24, GetScreenWidth(), GetScreenHeight()-24, 0, msg);
 				FlipScreen();
 			}

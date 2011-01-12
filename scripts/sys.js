@@ -48,7 +48,16 @@ function Plugin(event, code) {
 }
 
 function addPlugin(plugin) {
-	PluginArray[PluginArray.length] = plugin;
+	plugin.cycles = 0;
+	plugin_code = plugin.code;
+	exists = false;
+	for(i=0;i<PluginArray.length;i++) {
+		if(PluginArray[i].code == plugin_code) {
+			exists = true;
+			break;
+		}
+	}
+	if(exists == false) PluginArray[PluginArray.length] = plugin;
 }
 
 function LoadDefaultPlugins() {
